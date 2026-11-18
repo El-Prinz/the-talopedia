@@ -51,3 +51,4 @@
 - { id: noradia, name: Noradia, adjective: Noradian, continent: Pelagonia, flag: /assets/flags/noradia.png }
 - { id: recolotta, name: Recolotta, adjective: Recolottan, continent: Pelagonia, flag: /assets/flags/recolotta.png }
 - { id: sehreno, name: Sehreno, adjective: Sehrenese, continent: Pelagonia, flag: /assets/flags/sehreno.png }
+- { id: woxza, name: Woxza, adjective: Woxzani, continent: Pelagonia, flag: /assets/flags/woxza.png }
