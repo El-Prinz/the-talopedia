@@ -43,8 +43,10 @@
 - { id: hollosend, name: Hollosend, adjective: Hollosendian, continent: Elysia, flag: /assets/flags/hollosend.png }
 - { id: ponurvia, name: Ponurvia, adjective: Ponurvian, continent: Elysia, flag: /assets/flags/ponurvia.png }
 - { id: salishia, name: Salishia, adjective: Salishian, continent: Elysia, flag: /assets/flags/salishia.png }
+- { id: santee, name: Santee, continent: Elysia, flag: /assets/flags/santee.png }
 
 - { id: arunya, name: Arunya, adjective: Arunyan, continent: Pelagonia, flag: /assets/flags/arunya.png }
+- { id: dias, name: Dias, adjective: Diasian, continent: Pelagonia, flag: /assets/flags/dias.png }
 - { id: eivorie, name: Eivorie, adjective: Eivorian, continent: Pelagonia, flag: /assets/flags/eivorie.png }
 - { id: noradia, name: Noradia, adjective: Noradian, continent: Pelagonia, flag: /assets/flags/noradia.png }
 - { id: recolotta, name: Recolotta, adjective: Recolottan, continent: Pelagonia, flag: /assets/flags/recolotta.png }
