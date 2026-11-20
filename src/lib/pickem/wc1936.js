@@ -64,6 +64,43 @@ export function scoreEntry(p, r) {
   return out;
 }
 
+/**
+ * The most an entry can still finish on: the results so far, every unfinished group in the entry's own order, every
+ * award not yet given going to its pick, and the bracket played out whichever way is worth most to it. The bracket is
+ * searched whole, since a tie's winner also decides who the next round and the third-place match can hold.
+ */
+export function ceiling(p, r) {
+  const b = { ...r, groups: { ...r.groups }, ko: {}, awards: { ...r.awards }, done: {} };
+  for (const g of GROUP_KEYS) { b.done[g] = true; if (!r.done?.[g]) b.groups[g] = p.groups[g].slice(); }
+  for (const k of AWARDS) if (!b.awards[k] && k !== 'ball') b.awards[k] = p.awards[k];
+  // The Golden Ball goes to a man of the champions, so an open one only counts where the final goes his side's way.
+  const ballSide = !r.awards.ball && p.awards.ball ? p.awards.ball.split('|')[0] : null;
+  const base = scoreEntry(p, b).total;            // the groups, the dark horse out of its group, the awards
+  const gain = (id, w) => (MATCHES.some((x) => x[0] === id[0] && p.ko[x] === w) ? K.POINTS[id[0]] : 0) + (p.dark === w ? DARK : 0);
+  const ok = (id, w) => !r.ko[id] || r.ko[id] === w;
+  // best(id): each side that can win this tie, with the most its part of the bracket is worth when it does.
+  const best = (id) => {
+    const out = new Map();
+    if (id[0] === 'r') { for (const w of participants(b, id)) if (w && ok(id, w)) out.set(w, gain(id, w)); return out; }
+    const [A, B] = K.FEED[id].map(best), top = (M) => Math.max(...M.values());
+    for (const [X, Y] of [[A, B], [B, A]]) for (const [w, v] of X) if (ok(id, w)) out.set(w, v + top(Y) + gain(id, w));
+    return out;
+  };
+  // The semi-finals keep their losers too, for the third-place match.
+  const semi = (id) => {
+    const [A, B] = K.FEED[id].map(best), out = [];
+    for (const [X, Y] of [[A, B], [B, A]]) for (const [w, v] of X) for (const [l, u] of Y) if (ok(id, w)) out.push({ w, l, v: v + u + gain(id, w) });
+    return out;
+  };
+  const S0 = semi('s0'), S1 = semi('s1');
+  let most = 0;
+  for (const a of S0) for (const c of S1) {
+    const third = (r.ko.t ? r.ko.t === p.ko.t : p.ko.t === a.l || p.ko.t === c.l) ? K.POINTS.t : 0;
+    for (const f of [a.w, c.w]) if (ok('f', f)) most = Math.max(most, a.v + c.v + gain('f', f) + third + (f === ballSide ? K.POINTS.award : 0));
+  }
+  return base + most;
+}
+
 export function standings(entries, results) {
   return entries
     .map((e) => ({ entry: e, ...scoreEntry(e, results) }))

@@ -1,0 +1,88 @@
+{
+ "sims": 984,
+ "label": null,
+ "at": "2026-11-20",
+ "entries": {
+  "aetheryis": {
+   "code": "WC36-ASAmQCgoESAhAPX8A9fwDyxeCENvcnRlc2lhgA",
+   "proj": 31.3,
+   "win": 0.028,
+   "groups": 19.5,
+   "ko": 8.6,
+   "dark": 3.2,
+   "awards": 0
+  },
+  "auroruse": {
+   "code": "WC36-AQHUgQACjeshYTj8vtfnlJvBBUtpcmluCA",
+   "proj": 52.2,
+   "win": 0.431,
+   "groups": 29.8,
+   "ko": 17.6,
+   "dark": 2.9,
+   "awards": 1.9
+  },
+  "corniy-dev": {
+   "code": "WC36-AQCAAIABAQ4iU_MpT8ykD0sdC05ldyBTYWVvaWRz2g",
+   "proj": 34.7,
+   "win": 0.018,
+   "groups": 20.3,
+   "ko": 13.1,
+   "dark": 1.3,
+   "awards": 0
+  },
+  "el-prinz": {
+   "code": "WC36-ARAowIEAgLoyLP6A5hekD0sOCFBlcm92c2thxw",
+   "proj": 33,
+   "win": 0.018,
+   "groups": 20.6,
+   "ko": 11,
+   "dark": 1.4,
+   "awards": 0
+  },
+  "generalvarah": {
+   "code": "WC36-AWHGIAgigQ8RYTj9Sum2bKBMCVZhcmFobWVocog",
+   "proj": 42,
+   "win": 0.114,
+   "groups": 23.5,
+   "ko": 15.8,
+   "dark": 0.7,
+   "awards": 2
+  },
+  "macaroniatmine": {
+   "code": "WC36-AWBOAQACgCwydagRDXO2bKBNBkdlbm9zYW0",
+   "proj": 45.3,
+   "win": 0.169,
+   "groups": 28.1,
+   "ko": 14.5,
+   "dark": 2.5,
+   "awards": 0.2
+  },
+  "michaelnguyen2803": {
+   "code": "WC36-AUgAAAAAAQkh_AAD8AAPwAAHCEdyZWF0IEFpGQ",
+   "proj": 37.2,
+   "win": 0.039,
+   "groups": 23.4,
+   "ko": 13.1,
+   "dark": 0.8,
+   "awards": 0
+  },
+  "mrrv533-creator": {
+   "code": "WC36-AaHqYQAgxM0xF3MlhOPzFMRMCUFsZW1hbm5pYaY",
+   "proj": 43.8,
+   "win": 0.146,
+   "groups": 25.7,
+   "ko": 16.6,
+   "dark": 0.7,
+   "awards": 0.8
+  },
+  "zezelandnationstates-hash": {
+   "code": "WC36-AQBcAKgsUCwhQhS1BWnTFMRMCFplemVsYW5khg",
+   "proj": 32.4,
+   "win": 0.037,
+   "groups": 22.2,
+   "ko": 9.2,
+   "dark": 0.7,
+   "awards": 0.3
+  }
+ }
+}

@@ -77,8 +77,10 @@ const groupOf = (t) => K.GROUP_KEYS.find((g) => DATA.groups[g].includes(t));
 const PICK_STEPS = ['groups', 'knockouts', 'extras', 'submit'];
 const STEP_NAME = { groups: 'Groups', knockouts: 'Knockouts', extras: 'Extras', submit: 'Submit', board: 'Leaderboard', crowd: 'The crowd' };
 const ENTRIES = DATA.entries.flatMap((e) => {
-  try { return [K.decode(e.code, DATA)]; } catch { console.warn(`pick'em entry ${e.login} no longer decodes`); return []; }
+  try { return [Object.assign(K.decode(e.code, DATA), { login: e.login, code: e.code })]; } catch { console.warn(`pick'em entry ${e.login} no longer decodes`); return []; }
 });
+// The engine's projection for an entry (scripts/project-pickem-wc1936.mjs), only while its picks are the ones it scored.
+const projOf = (e) => { const p = DATA.projection?.entries?.[e.login]; return p && p.code === e.code ? p : null; };
 const locked = () => (ADMIN ? adminLocked : LOCKED);
 function steps() {
   if (locked()) return ['board', 'crowd', 'groups', 'knockouts', 'extras'];
@@ -731,21 +733,24 @@ function view(entry) {
 
 const pct = (x) => (x ? `${Math.round(x * 100)}%` : '–');
 let boardRows = [];
+const winPct = (x) => (x >= 0.995 ? '>99%' : x > 0 && x < 0.005 ? '<1%' : `${Math.round(x * 100)}%`);
 function renderBoard() {
   const list = ENTRIES;
   $('#pk-board-n').textContent = String(list.length).padStart(2, '0');
-  if (!list.length) { $('#pk-board').innerHTML = '<tr class="pk-none"><td colspan="10">No entries yet</td></tr>'; return; }
+  if (!list.length) { $('#pk-board').innerHTML = '<tr class="pk-none"><td colspan="13">No entries yet</td></tr>'; return; }
   const scored = anyResult(results), dash = '<span class="pk-dim">–</span>';
   const rows = boardRows = scored ? K.standings(list, results)
-    : list.map((entry) => ({ entry })).sort((a, b) => a.entry.name.localeCompare(b.entry.name));
+    : list.map((entry) => ({ entry })).sort((a, b) => (projOf(b.entry)?.proj ?? -1) - (projOf(a.entry)?.proj ?? -1)
+      || a.entry.name.localeCompare(b.entry.name));
   let rank = 0;
   $('#pk-board').innerHTML = rows.map((r, i) => {
     const prev = rows[i - 1];
     if (scored && (!prev || prev.total !== r.total || prev.exact !== r.exact || prev.gap !== r.gap)) rank = i + 1;
-    const c = K.champion(r.entry), d = r.entry.dark, pts = (v) => (scored ? v : dash);
+    const c = K.champion(r.entry), d = r.entry.dark, pts = (v) => (scored ? v : dash), pr = projOf(r.entry);
     return `<tr style="--i:${Math.min(i, 30)}">
       <td class="num rank${rank === 1 && scored ? ' first' : ''}">${scored ? rank : dash}</td><td class="who">${esc(r.entry.name)}</td>
       <td class="num">${pts(r.groups)}</td><td class="num">${pts(r.ko)}</td><td class="num">${pts(r.dark)}</td><td class="num">${pts(r.awards)}</td><td class="num total">${pts(r.total)}</td>
+      <td class="num">${pr ? pr.proj.toFixed(1) : dash}</td><td class="num">${pr ? winPct(pr.win) : dash}</td><td class="num">${scored ? K.ceiling(r.entry, results) : dash}</td>
       <td>${c ? `<span class="pk-inline">${flag(c, 'sm')}${esc(T[c].name)}</span>` : ''}</td>
       <td class="hide-sm">${d ? `<span class="pk-inline">${flag(d, 'sm')}${esc(T[d].name)}</span>` : dash}</td>
       <td class="act"><button type="button" class="pk-btn small" data-view="${i}" aria-label="View ${esc(r.entry.name)}'s picks">View</button></td></tr>`;

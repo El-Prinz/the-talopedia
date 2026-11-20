@@ -12,7 +12,8 @@
     "clean": "rm -rf node_modules/.astro node_modules/.vite .astro dist",
     "sync": "node scripts/sync.mjs",
     "sync-pickem": "node scripts/sync-pickem.mjs",
-    "sync-pickem-wc1936": "node scripts/sync-pickem-wc1936.mjs"
+    "sync-pickem-wc1936": "node scripts/sync-pickem-wc1936.mjs",
+    "project-pickem-wc1936": "node scripts/project-pickem-wc1936.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

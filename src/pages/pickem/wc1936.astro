@@ -11,13 +11,15 @@ import { url } from '../../lib/registry.mjs';
 import * as K from '../../lib/pickem/wc1936.js';
 
 const REPO = process.env.GITHUB_REPO || 'auroruse/the-talopedia';
+// The engine's projections, once a run has been scored (scripts/project-pickem-wc1936.mjs).
+const projection = Object.values(import.meta.glob('../../content/data/pickem-wc1936-projection.json', { eager: true, import: 'default' }))[0] || null;
 const entries = Object.entries(import.meta.glob('../../content/data/pickem-wc1936/entries/*.json', { eager: true, import: 'default' }))
   .map(([file, e]) => ({ login: file.split('/').pop().replace(/\.json$/, ''), code: e.code }));
 const art = (f) => url(`/assets/pickem/wc1936/${f}`);
 // The address printed on the card: the deploy's own, or the live site's when built without one.
 const live = process.env.SITE_URL ? new URL(url('/pickem/wc1936/'), Astro.site).href : 'https://auroruse.github.io/the-talopedia/pickem/wc1936/';
 const site = live.replace(/^https?:\/\//, '').replace(/\/$/, '');
-const payload = JSON.stringify({ ...data, state, entries, repo: REPO, art: art(''), site }).replace(/</g, '\\u003c');
+const payload = JSON.stringify({ ...data, state, entries, projection, repo: REPO, art: art(''), site }).replace(/</g, '\\u003c');
 const P = K.POINTS;
 ---
 <!doctype html>
@@ -184,9 +186,9 @@ const P = K.POINTS;
     <section class="pk-step" data-step="board" aria-labelledby="pk-h-board" hidden>
       <div class="pk-head"><h2 id="pk-h-board">Leaderboard</h2><p class="pk-count"><b id="pk-board-n"></b><span>Entries</span></p></div>
       <div class="pk-table-wrap">
-        <table class="pk-table">
-          <colgroup><col style="width:56px"><col style="width:20%"><col style="width:84px"><col style="width:100px"><col style="width:72px"><col style="width:80px"><col style="width:76px"><col style="width:19%"><col class="hide-sm" style="width:19%"><col style="width:136px"></colgroup>
-          <thead><tr><th class="num">#</th><th>Entrant</th><th class="num">Groups</th><th class="num">Knockouts</th><th class="num">Dark</th><th class="num">Awards</th><th class="num">Total</th><th>Champion</th><th class="hide-sm">Dark horse</th><th><span class="pk-sr">Picks</span></th></tr></thead>
+        <table class="pk-table pk-board-t">
+          <colgroup><col style="width:56px"><col style="width:20%"><col style="width:84px"><col style="width:100px"><col style="width:72px"><col style="width:80px"><col style="width:76px"><col style="width:76px"><col style="width:70px"><col style="width:66px"><col style="width:17%"><col class="hide-sm" style="width:17%"><col style="width:136px"></colgroup>
+          <thead><tr><th class="num">#</th><th>Entrant</th><th class="num">Groups</th><th class="num">Knockouts</th><th class="num">Dark</th><th class="num">Awards</th><th class="num">Total</th><th class="num" title="Average points over the tournaments the engine played out">Proj.</th><th class="num" title="Share of those tournaments this entry tops the pick'em">Win</th><th class="num" title="The most this entry can still finish on">Max</th><th>Champion</th><th class="hide-sm">Dark horse</th><th><span class="pk-sr">Picks</span></th></tr></thead>
           <tbody id="pk-board"></tbody>
         </table>
       </div>
@@ -650,6 +652,7 @@ const P = K.POINTS;
     /* ── tables ────────────────────────────────────────────────────────────────────────────── */
     .pk-table-wrap { overflow-x: auto; background: #fff; clip-path: var(--cham); --c: 16px; }
     .pk-table { width: 100%; min-width: 760px; border-collapse: collapse; table-layout: fixed; color: var(--ink); }
+    .pk-board-t { min-width: 1260px; }
     .pk-table th { height: 52px; padding: 0 14px; background: var(--gold); color: var(--navy); text-align: left; font: 800 13px/1.1 var(--face); letter-spacing: .16em; text-transform: uppercase; }
     .pk-table td { height: 54px; padding: 0 14px; border-bottom: 1px solid var(--line); font: 500 18px/1.1 var(--face); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .pk-table tbody tr { animation: pk-rise .32s var(--ease-out) both; animation-delay: calc(var(--i, 0) * 20ms); }
