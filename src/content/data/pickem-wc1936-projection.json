@@ -6,7 +6,7 @@
   "aetheryis": {
    "code": "WC36-ASAmQCgoESAhAPX8A9fwDyxeCENvcnRlc2lhgA",
    "proj": 31.3,
-   "win": 0.028,
+   "win": 0.027,
    "groups": 19.5,
    "ko": 8.6,
    "dark": 3.2,
@@ -15,7 +15,7 @@
   "auroruse": {
    "code": "WC36-AQHUgQACjeshYTj8vtfnlJvBBUtpcmluCA",
    "proj": 52.2,
-   "win": 0.431,
+   "win": 0.429,
    "groups": 29.8,
    "ko": 17.6,
    "dark": 2.9,
@@ -24,7 +24,7 @@
   "corniy-dev": {
    "code": "WC36-AQCAAIABAQ4iU_MpT8ykD0sdC05ldyBTYWVvaWRz2g",
    "proj": 34.7,
-   "win": 0.018,
+   "win": 0.014,
    "groups": 20.3,
    "ko": 13.1,
    "dark": 1.3,
@@ -40,18 +40,18 @@
    "awards": 0
   },
   "generalvarah": {
-   "code": "WC36-AWHGIAgigQ8RYTj9Sum2bKBMCVZhcmFobWVocog",
-   "proj": 42,
-   "win": 0.114,
+   "code": "WC36-AWGJIAgihQ8RYTj9RYlXlJvMCVZhcmFobWVocgI",
+   "proj": 42.8,
+   "win": 0.123,
    "groups": 23.5,
-   "ko": 15.8,
+   "ko": 16.8,
    "dark": 0.7,
-   "awards": 2
+   "awards": 1.9
   },
   "macaroniatmine": {
    "code": "WC36-AWBOAQACgCwydagRDXO2bKBNBkdlbm9zYW0",
    "proj": 45.3,
-   "win": 0.169,
+   "win": 0.17,
    "groups": 28.1,
    "ko": 14.5,
    "dark": 2.5,
@@ -69,7 +69,7 @@
   "mrrv533-creator": {
    "code": "WC36-AaHqYQAgxM0xF3MlhOPzFMRMCUFsZW1hbm5pYaY",
    "proj": 43.8,
-   "win": 0.146,
+   "win": 0.139,
    "groups": 25.7,
    "ko": 16.6,
    "dark": 0.7,
@@ -78,7 +78,7 @@
   "zezelandnationstates-hash": {
    "code": "WC36-AQBcAKgsUCwhQhS1BWnTFMRMCFplemVsYW5khg",
    "proj": 32.4,
-   "win": 0.037,
+   "win": 0.04,
    "groups": 22.2,
    "ko": 9.2,
    "dark": 0.7,
