@@ -1,23 +1,27 @@
 // The pick'em's results file, from the football engine's own save of the tournament.
 //
-//   node scripts/pickem-results.mjs [export.json]
+//   node scripts/pickem-results.mjs <export.json>
 //
-// Reads a "1935 World Cup" export (Tournament > Export in the engine; by default the one dropped over
-// the results file itself) and writes src/content/data/pickem-wc1935-state.json: every finished group
-// in its final order, the winner of every tie played so far, and the final's score once there is one.
-// The engine plays the pick'em's own bracket, so each tie is checked against the slot it fills and a
-// save that disagrees is refused rather than half-written. Picks stay locked.
+// Reads a "1935 World Cup" or "1936 World Cup" export (Tournament > Export in the engine) and writes that
+// year's src/content/data/pickem-wc<year>-state.json: every finished group in its final order, the winner of
+// every tie played so far, and the final's score once there is one. The engine plays the pick'em's own
+// bracket, so each tie is checked against the slot it fills and a save that disagrees is refused rather than
+// half-written. Picks stay locked, and awards already in the file are kept.
 import fs from 'node:fs';
-import * as K from '../src/lib/pickem/core.js';
 
-const OUT = 'src/content/data/pickem-wc1935-state.json';
-const src = JSON.parse(fs.readFileSync(process.argv[2] || OUT, 'utf8'));
+const src = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
 if (src.kind !== 'avium-tournament') throw new Error('not an engine tournament export');
-const data = JSON.parse(fs.readFileSync('src/content/data/pickem-wc1935.json', 'utf8'));
+const year = (src.name || '').match(/^(193[56]) World Cup$/)?.[1];
+if (!year) throw new Error(`not a pick'em World Cup: ${src.name}`);
+const K = await import(year === '1935' ? '../src/lib/pickem/core.js' : '../src/lib/pickem/wc1936.js');
+const OUT = `src/content/data/pickem-wc${year}-state.json`;
+const data = JSON.parse(fs.readFileSync(`src/content/data/pickem-wc${year}.json`, 'utf8'));
+const prev = JSON.parse(fs.readFileSync(OUT, 'utf8')).results;
 const code = new Map(Object.entries(data.teams).map(([c, t]) => [t.name.normalize('NFC'), c]));
 const who = (t) => (t ? code.get((t.$t || t.name || '').normalize('NFC')) : null);
 
 const p = src.payload, results = K.blank(data.groups, true);
+if (prev?.awards) results.awards = { ...results.awards, ...prev.awards };
 for (const g of p.tGroups) {
   const order = g.standings.map(who), ties = g.schedule.flat().filter((m) => m.home && m.away && !m.bye);
   if (order.some((c) => !c) || [...order].sort().join() !== [...data.groups[g.label]].sort().join())
