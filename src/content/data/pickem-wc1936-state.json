@@ -52,15 +52,32 @@
     "ABB"
    ]
   },
-  "ko": {},
+  "ko": {
+   "r0": "KMT",
+   "r1": "VIC",
+   "r2": "NCH",
+   "r3": "KAR",
+   "r4": "COR",
+   "r5": "ANT",
+   "r6": "ESU",
+   "r7": "HOL",
+   "q0": "VIC",
+   "q1": "KAR",
+   "q2": "COR",
+   "q3": "ESU",
+   "s0": "VIC",
+   "s1": "COR",
+   "f": "VIC",
+   "t": "ESU"
+  },
   "score": [
-   null,
-   null
+   3,
+   0
   ],
   "awards": {
-   "boot": null,
-   "ball": null,
-   "glove": null
+   "boot": "VIC|Raffaele Lucchese",
+   "ball": "VIC|Raffaele Lucchese",
+   "glove": "KAR|Aleksi Järveläinen"
   },
   "done": {
    "A": true,

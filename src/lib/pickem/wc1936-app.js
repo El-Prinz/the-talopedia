@@ -733,11 +733,10 @@ function view(entry) {
 
 const pct = (x) => (x ? `${Math.round(x * 100)}%` : '–');
 let boardRows = [];
-const winPct = (x) => (x >= 0.995 ? '>99%' : x > 0 && x < 0.005 ? '<1%' : `${Math.round(x * 100)}%`);
 function renderBoard() {
   const list = ENTRIES;
   $('#pk-board-n').textContent = String(list.length).padStart(2, '0');
-  if (!list.length) { $('#pk-board').innerHTML = '<tr class="pk-none"><td colspan="13">No entries yet</td></tr>'; return; }
+  if (!list.length) { $('#pk-board').innerHTML = '<tr class="pk-none"><td colspan="12">No entries yet</td></tr>'; return; }
   const scored = anyResult(results), dash = '<span class="pk-dim">–</span>';
   const rows = boardRows = scored ? K.standings(list, results)
     : list.map((entry) => ({ entry })).sort((a, b) => (projOf(b.entry)?.proj ?? -1) - (projOf(a.entry)?.proj ?? -1)
@@ -750,7 +749,7 @@ function renderBoard() {
     return `<tr style="--i:${Math.min(i, 30)}">
       <td class="num rank${rank === 1 && scored ? ' first' : ''}">${scored ? rank : dash}</td><td class="who">${esc(r.entry.name)}</td>
       <td class="num">${pts(r.groups)}</td><td class="num">${pts(r.ko)}</td><td class="num">${pts(r.dark)}</td><td class="num">${pts(r.awards)}</td><td class="num total">${pts(r.total)}</td>
-      <td class="num">${pr ? pr.proj.toFixed(1) : dash}</td><td class="num">${pr ? winPct(pr.win) : dash}</td><td class="num">${scored ? K.ceiling(r.entry, results) : dash}</td>
+      <td class="num">${pr ? pr.proj.toFixed(1) : dash}</td><td class="num">${scored ? K.ceiling(r.entry, results) : dash}</td>
       <td>${c ? `<span class="pk-inline">${flag(c, 'sm')}${esc(T[c].name)}</span>` : ''}</td>
       <td class="hide-sm">${d ? `<span class="pk-inline">${flag(d, 'sm')}${esc(T[d].name)}</span>` : dash}</td>
       <td class="act"><button type="button" class="pk-btn small" data-view="${i}" aria-label="View ${esc(r.entry.name)}'s picks">View</button></td></tr>`;
