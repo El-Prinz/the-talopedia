@@ -12,10 +12,8 @@ infobox:
   - { label: "Motto", value: "Quis Contra Nos" }
   - label: "Anthem"
     value:
-      - "\"Смело — вперёд, за Отчизну Святую!\""
-      - "(Boldly"
-      - "—"
-      - "forwards for the Holy Fatherland!)"
+      - "\"Смело - вперёд, за Отчизну Святую!\""
+      - "(Boldly - forwards for the Holy Fatherland!)"
   - { label: "Capital", value: "Kyakhta" }
   - { label: "Largest City", value: "Kyakhta" }
   - { section: "Administration" }
@@ -89,7 +87,7 @@ The General Staff exercises direct authority over the armed forces and maintains
 
 The Transitory Council serves as an advisory institution and is intended to form the basis of a future civilian government, within it exists the Independent Department for Civil Affairs which acts as the precursor for the future judiciary. It exercises its authority principally in the larger urban settlements, however, certain judicial proceedings
 
- may be transferred to special military tribunals by order of the General Staff.
+may be transferred to special military tribunals by order of the General Staff.
 
 The country is divided into eight military districts plus the capital's Special District, which constitute its principal territorial administrative divisions:
 
