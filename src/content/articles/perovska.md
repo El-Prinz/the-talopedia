@@ -61,7 +61,7 @@ Perovska was established as a Rudanian colonial administration in 1873. Followin
 
 ## Etymology
 
-The name Perovska derives from General Perovsky, a Rudanian military officer responsible for establishing the original colonial administrative district in 1873. The name was subsequently extended to the entire territory by the present Governor-General.
+The name Perovska derives from General Perovsky, a Rudanian military officer of Cortesian ancestry responsible for establishing the original colonial administrative district in 1873. The name was subsequently extended to the entire territory by the present Governor-General.
 
 The adoption of the historical designation was intended to preserve continuity with the former Rudanian imperial administration and reinforce the legitimacy of Perovska's claims to the institutions and territories of the former empire. Official communications frequently describe the present administration as the successor to the original colonial undertaking, a position which may facilitate future territorial and diplomatic claims against the People's Republic of Rudania.
 
