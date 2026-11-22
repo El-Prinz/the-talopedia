@@ -12,7 +12,7 @@ infobox:
       - items:
           - "**The Entente:**"
           - ":flag[arverne] [[arverne]]"
-          - "  :img[/assets/flags/barbarie.png] [[barbarie]]"
+          - "  :img[/assets/flags/numidia.png] [[numidia]]"
           - "  :img[/assets/flags/cote-de-saumon.png] [[c-te-de-saumon|Côte De Saumon]]"
           - "  :img[/assets/flags/south-pelagonia.png] [[south-pelagonia]]"
           - "  :img[/assets/flags/tonkin.png] [[tonkin]]"

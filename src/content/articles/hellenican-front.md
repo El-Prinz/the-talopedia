@@ -389,7 +389,7 @@ The third belt held. Repeated attacks on it between 26 September and 15 October 
 
 ### Situation at the end of 1916
 
-At the end of 1916 Selmira was fighting on four fronts: at the Aspis, on the Stenon, in the interior of Astartolia and in Nabataea. It had lost its primary port and two of the three belts that covered Aspadana. The Accord had not broken any of the four. Vicily now maintained three armies east of the Argyron, in addition to its commitments on the Southwestern and Barbary fronts.
+At the end of 1916 Selmira was fighting on four fronts: at the Aspis, on the Stenon, in the interior of Astartolia and in Nabataea. It had lost its primary port and two of the three belts that covered Aspadana. The Accord had not broken any of the four. Vicily now maintained three armies east of the Argyron, in addition to its commitments on the Southwestern and Numidian fronts.
 
 ## 1917: Aspadana and the Selm
 

@@ -10,6 +10,7 @@
 - { id: alemannia, name: Alemannia, adjective: Alemannian, continent: Evria, portal: true, flag: /assets/flags/alemannia.png }
 - { id: arverne, name: Arverne, adjective: Arvernois, continent: Evria, portal: true, flag: /assets/flags/arverne.png }
 - { id: cortesia, name: Cortesia, adjective: Cortesian, continent: Evria, portal: true, flag: /assets/flags/cortesia.jpg }
+- { id: carestur, name: Carestur, continent: Evria, flag: /assets/flags/carestur.png }
 - { id: demaruz, name: Demâruz, adjective: Demâruzi, continent: Evria, flag: /assets/flags/demaruz.png }
 - { id: east-astriya, name: East Astriya, adjective: Astriyan, continent: Evria, flag: /assets/flags/east-astriya.png }
 - { id: elvester, name: Elvester, adjective: Elvesterian, continent: Evria, portal: true, flag: /assets/flags/elvester.png }
@@ -49,6 +50,5 @@
 - { id: dias, name: Dias, adjective: Diasian, continent: Pelagonia, flag: /assets/flags/dias.png }
 - { id: eivorie, name: Eivorie, adjective: Eivorian, continent: Pelagonia, flag: /assets/flags/eivorie.png }
 - { id: noradia, name: Noradia, adjective: Noradian, continent: Pelagonia, flag: /assets/flags/noradia.png }
-- { id: recolotta, name: Recolotta, adjective: Recolottan, continent: Pelagonia, flag: /assets/flags/recolotta.png }
 - { id: sehreno, name: Sehreno, adjective: Sehrenese, continent: Pelagonia, flag: /assets/flags/sehreno.png }
 - { id: woxza, name: Woxza, adjective: Woxzani, continent: Pelagonia, flag: /assets/flags/woxza.png }

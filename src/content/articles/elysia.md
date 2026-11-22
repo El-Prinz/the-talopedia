@@ -25,7 +25,7 @@ infobox:
 
 ## Etymology
 
-‘Elysia’ derives from the ancient Astriyan *Elysion* or Elysian Fields, the paradise of the blessed in Astriyan mythology, where heroes and the virtuous were said to dwell after death. Rumaic explorers and colonists, sailing westward from the Barbary across the Sargassum Straits between 50 BCE and 50 CE, encountered the Eastern Elysian coastline and named the continent after the mythological realm due to the perceived abundance and fertility of the land compared to the more densely settled regions of [[evria]]. The Rumaic adaptation, *Elysia*, gradually became standardized in international cartography following sustained periods of colonization. Indigenous populations had their own names for the continent, but Rumaic geographic nomenclature became the internationally recognized standard.
+‘Elysia’ derives from the ancient Astriyan *Elysion* or Elysian Fields, the paradise of the blessed in Astriyan mythology, where heroes and the virtuous were said to dwell after death. Rumaic explorers and colonists, sailing westward from Numidia across the Sargassum Straits between 50 BCE and 50 CE, encountered the Eastern Elysian coastline and named the continent after the mythological realm due to the perceived abundance and fertility of the land compared to the more densely settled regions of [[evria]]. The Rumaic adaptation, *Elysia*, gradually became standardized in international cartography following sustained periods of colonization. Indigenous populations had their own names for the continent, but Rumaic geographic nomenclature became the internationally recognized standard.
 
 ## History
 

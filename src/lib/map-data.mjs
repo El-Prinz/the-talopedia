@@ -24,7 +24,7 @@ export const FILES = ['nations.tsv', 'cities.tsv', 'areas.json'];
 // Renamed on the site and not yet on the map: the map's name and the current one.
 const RENAMED = { Mizuho: 'Iriria', 'Hōrai': 'Shashanka', 'Ryūgu': 'Dar Hadid' };
 // The flag a dependency already has on the site under another name.
-const FLAG_OF = { barbary: 'barbarie', 'napolyon-bonparterre-islands': 'bonparterre-islands' };
+const FLAG_OF = { 'napolyon-bonparterre-islands': 'bonparterre-islands' };
 
 const dir = () => (fs.existsSync(path.join(SIBLING, 'nations.tsv')) ? SIBLING : FETCHED);
 const num = (s) => {
